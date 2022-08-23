@@ -28,7 +28,7 @@ public class TagService {
 	 * 	The list of tags associated to the file
 	 */
 	public List<Tag> getTagsForFile(File file) {
-		return tagRepository.findAllByFileId(file.getId());
+		return tagRepository.findAllTagsByFileId(file.getId());
 	}
 
 	/**

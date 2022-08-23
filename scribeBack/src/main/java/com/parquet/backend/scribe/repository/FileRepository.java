@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.parquet.backend.scribe.model.File;
+import com.parquet.backend.scribe.model.Tag;
 
 /**
  * Execute queries against file table in sqlite
@@ -13,7 +14,7 @@ import com.parquet.backend.scribe.model.File;
 @Repository
 public interface FileRepository extends JpaRepository<File, Long> {
 
-	@Query("SELECT * FROM files f WHERE f.folder_id = :folderId")
+	@Query("select f from File f WHERE f.folder.id = :folderId")
 	public List<File> findAllByFolderId(@Param("folderId") long folderId);
-
+	
 }

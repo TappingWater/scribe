@@ -52,9 +52,9 @@ public class ProfileService {
 	 * @return
 	 * 	True if valuue exists and can be deleted or false otherwise
 	 */
-	public boolean deleteProfile(Profile profile) {
-		if (profileRepository.existsById(profile.getId())) {
-			profileRepository.delete(profile);
+	public boolean deleteProfile(long id) {
+		if (profileRepository.existsById(id)) {
+			profileRepository.deleteById(id);
 			return true;
 		} else {
 			return false;

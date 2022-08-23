@@ -51,7 +51,7 @@ public class SQLiteDialect extends Dialect {
 	public boolean supportsIdentityColumns() {
 		return true;
 	}
-
+	
 	public boolean hasDataTypeInIdentityColumn() {
 		return false; 
 	}

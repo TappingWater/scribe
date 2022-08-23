@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
 import org.hibernate.annotations.CreationTimestamp;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,7 +35,7 @@ public class Profile {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Column(name = "profile_name", nullable = false)
+	@Column(name = "profile_name", nullable = false, unique = true)
     	private String profileName;
 
 	@CreationTimestamp
