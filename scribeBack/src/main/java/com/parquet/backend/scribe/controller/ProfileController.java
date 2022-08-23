@@ -1,7 +1,6 @@
 package com.parquet.backend.scribe.controller;
 
 import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,11 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.parquet.backend.scribe.controller.util.ResponseEntityWrapper;
 import com.parquet.backend.scribe.model.Profile;
 import com.parquet.backend.scribe.service.ProfileService;
-
 import lombok.AllArgsConstructor;
 
 /**
