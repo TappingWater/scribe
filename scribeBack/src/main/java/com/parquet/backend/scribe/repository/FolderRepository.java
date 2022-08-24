@@ -14,7 +14,7 @@ import com.parquet.backend.scribe.model.Folder;
 @Repository
 public interface FolderRepository extends JpaRepository<Folder, Long> {
 
-	@Query("SELECT f FROM Folder f WHERE f.profile.profileName = :profileId")
+	@Query("SELECT f FROM Folder f join f.profile p WHERE p.profileName = :profileId")
 	public List<Folder> findAllByProfile(@Param("profileId") String profileId);
 	
 }

@@ -1,6 +1,5 @@
 package com.parquet.backend.scribe.service;
 
-import java.sql.SQLException;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.parquet.backend.scribe.model.Profile;

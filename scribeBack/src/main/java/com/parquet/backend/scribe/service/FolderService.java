@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.parquet.backend.scribe.model.Folder;
-import com.parquet.backend.scribe.model.Profile;
 import com.parquet.backend.scribe.repository.FolderRepository;
 
 import lombok.RequiredArgsConstructor;

@@ -41,7 +41,7 @@ public class ProfileController {
 	 * to the application
 	 */
 	@GetMapping("/{id}") 
-	public ResponseEntity<Profile> getllProfileById(@PathVariable String id) {
+	public ResponseEntity<Profile> getProfileById(@PathVariable String id) {
 		ResponseEntityWrapper<Profile> profile = new ResponseEntityWrapper<>(profileService.getProfileById(id));
 		return profile.getResponseEntity();
 	}
