@@ -30,10 +30,7 @@ import lombok.ToString;
 public class Profile {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-
-	@Column(name = "profile_name", nullable = false, unique = true)
+	@Column(name = "profile_name", nullable = false)
     	private String profileName;
 
 	@CreationTimestamp

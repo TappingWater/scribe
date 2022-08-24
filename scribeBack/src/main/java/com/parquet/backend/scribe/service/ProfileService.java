@@ -1,5 +1,6 @@
 package com.parquet.backend.scribe.service;
 
+import java.sql.SQLException;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.parquet.backend.scribe.model.Profile;
@@ -33,7 +34,7 @@ public class ProfileService {
 	 * @return
 	 * 	profile that matches the id passed or null otherwise
 	 */
-	public Profile getProfileById(Long profileId) {
+	public Profile getProfileById(String profileId) {
 		return profileRepository.findById(profileId).get();
 	}
 
@@ -52,7 +53,7 @@ public class ProfileService {
 	 * @return
 	 * 	True if valuue exists and can be deleted or false otherwise
 	 */
-	public boolean deleteProfile(long id) {
+	public boolean deleteProfile(String id) {
 		if (profileRepository.existsById(id)) {
 			profileRepository.deleteById(id);
 			return true;

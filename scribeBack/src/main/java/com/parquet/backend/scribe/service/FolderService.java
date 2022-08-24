@@ -26,8 +26,8 @@ public class FolderService {
 	 * 	The list of all folders within the application for a particular
 	 * profile.
 	 */
-	public List<Folder> getAllFoldersForProfile(Profile profile) {
-		return folderRepository.findAllByProfile(profile.getId());
+	public List<Folder> getAllFoldersForProfile(String profileId) {
+		return folderRepository.findAllByProfile(profileId);
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class FolderService {
 	 * Updates a folder for a particular profile and its configuration
 	 * 
 	 * @return
-	 * 	True if we succesfully updated our folder or false otherwise
+	 * 	True if we successfully updated our folder or false otherwise
 	 */
 	public boolean updateFolder(Folder folder) {
 		if (folderRepository.existsById(folder.getId())) {
@@ -60,11 +60,11 @@ public class FolderService {
 	 * Deletes a folder permanently and its internal configuration
 	 * 
 	 * @return
-	 * 	True if we succesfully deleted our folder or false otherwise
+	 * 	True if we successfully deleted our folder or false otherwise
 	 */
-	public boolean deleteFolder(Folder folder) {
-		if (folderRepository.existsById(folder.getId())) {
-			folderRepository.delete(folder);
+	public boolean deleteFolder(long folderId) {
+		if (folderRepository.existsById(folderId)) {
+			folderRepository.deleteById(folderId);
 			return true;
 		} else {
 			return false;
