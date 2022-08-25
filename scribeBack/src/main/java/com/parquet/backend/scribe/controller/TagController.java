@@ -23,7 +23,7 @@ import lombok.AllArgsConstructor;
  * that are related to tags.
  */
 @RestController
-@RequestMapping("/profiles")
+@RequestMapping("/tags")
 @AllArgsConstructor
 public class TagController {
 
