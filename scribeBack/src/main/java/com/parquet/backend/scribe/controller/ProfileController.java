@@ -32,7 +32,7 @@ public class ProfileController {
 	 */
 	@GetMapping("") 
 	public ResponseEntity<List<Profile>> getAllProfiles() {
-		ResponseEntityWrapper<List<Profile>> profiles = new ResponseEntityWrapper<>(profileService.getAllProfiles());
+		ResponseEntityWrapper<List<Profile>> profiles = new ResponseEntityWrapper<>(profileService.getAllProfiles(), HttpStatus.OK);
 		return profiles.getResponseEntity();
 	}
 
@@ -41,7 +41,7 @@ public class ProfileController {
 	 * to the application
 	 */
 	@GetMapping("/{id}") 
-	public ResponseEntity<Profile> getProfileById(@PathVariable String id) {
+	public ResponseEntity<Profile> getProfileById(@PathVariable long id) {
 		ResponseEntityWrapper<Profile> profile = new ResponseEntityWrapper<>(profileService.getProfileById(id));
 		return profile.getResponseEntity();
 	}
@@ -69,7 +69,7 @@ public class ProfileController {
 	 * 
 	 */
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Boolean> deleteProfile(@PathVariable("id") String id) {
+	public ResponseEntity<Boolean> deleteProfile(@PathVariable("id") long id) {
 		boolean deleted = profileService.deleteProfile(id);
 		if (deleted) {
 			ResponseEntityWrapper<Boolean> deletedWrapper = new ResponseEntityWrapper<Boolean>(deleted, HttpStatus.OK);

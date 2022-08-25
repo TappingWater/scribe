@@ -12,6 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -30,8 +34,9 @@ public class Folder {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
    	@JoinColumn(name = "profile_id", nullable = false)
+	@JsonProperty("profile")
 	private Profile profile;
 
 	@Column(name="label", nullable=false)
@@ -39,7 +44,7 @@ public class Folder {
 
 	@Column(name="path", nullable=false)
 	private String path;
-
+	
 	@OneToMany(mappedBy="folder", fetch=FetchType.LAZY, 
 		cascade=CascadeType.ALL) 
 	private Set<File> files;

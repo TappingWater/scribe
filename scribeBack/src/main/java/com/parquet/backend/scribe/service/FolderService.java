@@ -25,7 +25,7 @@ public class FolderService {
 	 * 	The list of all folders within the application for a particular
 	 * profile.
 	 */
-	public List<Folder> getAllFoldersForProfile(String profileId) {
+	public List<Folder> getAllFoldersForProfile(Long profileId) {
 		return folderRepository.findAllByProfile(profileId);
 	}
 

@@ -31,7 +31,7 @@ public class FolderController {
 	 * Get a list of folders associated to a profile
 	 */
 	@GetMapping("/{id}")
-	public ResponseEntity<List<Folder>> getAllFolders(@PathVariable("id") String profileId) {
+	public ResponseEntity<List<Folder>> getAllFolders(@PathVariable("id") Long profileId) {
 		ResponseEntityWrapper<List<Folder>> folders = new ResponseEntityWrapper<>(folderService.getAllFoldersForProfile(profileId), HttpStatus.OK);
 		return folders.getResponseEntity();
 	}

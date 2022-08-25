@@ -8,4 +8,4 @@ import com.parquet.backend.scribe.model.Profile;
  * Execute queries against profile table in sqlite
  */
 @Repository
-public interface ProfileRepository extends JpaRepository<Profile, String> {}
+public interface ProfileRepository extends JpaRepository<Profile, Long> {}

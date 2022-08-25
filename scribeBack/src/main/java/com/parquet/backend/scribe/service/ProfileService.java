@@ -33,7 +33,7 @@ public class ProfileService {
 	 * @return
 	 * 	profile that matches the id passed or null otherwise
 	 */
-	public Profile getProfileById(String profileId) {
+	public Profile getProfileById(long profileId) {
 		return profileRepository.findById(profileId).get();
 	}
 
@@ -52,7 +52,7 @@ public class ProfileService {
 	 * @return
 	 * 	True if valuue exists and can be deleted or false otherwise
 	 */
-	public boolean deleteProfile(String id) {
+	public boolean deleteProfile(long id) {
 		if (profileRepository.existsById(id)) {
 			profileRepository.deleteById(id);
 			return true;
