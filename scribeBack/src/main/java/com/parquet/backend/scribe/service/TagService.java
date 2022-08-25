@@ -21,14 +21,22 @@ public class TagService {
 	private final TagRepository tagRepository;
 
 	/**
+	 * Returns a list of all the tags stored in
+	 * this application.
+	 */
+	public List<Tag> getAllTags() {
+		return tagRepository.findAll();
+	}
+
+	/**
 	 * Gets a list of tags associated to a particular file
 	 * @param file
 	 * 	The file for which we need to search for tags for
 	 * @return
 	 * 	The list of tags associated to the file
 	 */
-	public List<Tag> getTagsForFile(File file) {
-		return tagRepository.findAllTagsByFileId(file.getId());
+	public List<Tag> getTagsForFile(long fileId) {
+		return tagRepository.findAllTagsByFileId(fileId);
 	}
 
 	/**
@@ -59,7 +67,7 @@ public class TagService {
 	 * Deletes a tag permanently and its internal configuration
 	 * 
 	 * @return
-	 * 	True if we succesfully deleted our tag or false otherwise
+	 * 	True if we successfully deleted our tag or false otherwise
 	 */
 	public boolean deleteTag(Tag tag) {
 		if (tagRepository.existsById(tag.getId())) {

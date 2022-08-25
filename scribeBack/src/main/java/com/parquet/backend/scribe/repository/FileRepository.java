@@ -15,5 +15,8 @@ public interface FileRepository extends JpaRepository<File, Long> {
 
 	@Query("select f from File f WHERE f.folder.id = :folderId")
 	public List<File> findAllByFolderId(@Param("folderId") long folderId);
+
+	@Query("insert into file_tags(file_id, tag_id) values(:fileId,:tagId)")	
+	public void addTagToFile(@Param("fileId") long fileId, @Param("tagId") long tagId);
 	
 }

@@ -2,8 +2,6 @@ package com.parquet.backend.scribe.model;
 
 import java.util.Date;
 import java.util.Set;
-
-import javax.annotation.Generated;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,10 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -39,7 +34,7 @@ public class Profile {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Column(name = "profile_name", nullable = false)	
+	@Column(name = "profile_name", nullable = false, unique = true)	
     	private String profileName;
 
 	@CreationTimestamp
