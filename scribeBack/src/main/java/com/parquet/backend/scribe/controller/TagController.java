@@ -34,7 +34,7 @@ public class TagController {
 	 */
 	@PostMapping("")
 	public ResponseEntity<Tag> createTag(@RequestBody Tag tag) {
-		ResponseEntityWrapper<Tag> createdTag = new ResponseEntityWrapper<>(tagService.createTag(tag), HttpStatus.OK);
+		ResponseEntityWrapper<Tag> createdTag = new ResponseEntityWrapper<>(tagService.createTag(tag), HttpStatus.CREATED);
 		return createdTag.getResponseEntity();
 	}
 
