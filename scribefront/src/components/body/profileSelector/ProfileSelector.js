@@ -9,7 +9,7 @@ import styles from "./ProfileSelector.module.css";
 const ProfileSelector = (props) => {
 	// Gets the list of configured profiles when application is started
 	let [configuredProfiles, updateProfiles] = useState(props.profiles);
-	let [selectedProf, updatedSelectedProfile] = useState(undefined);
+	let selectedProfile = undefined;
 	// Helper function that is used to generate the option tag that is
 	// used in the rendered JSX
 	let mapProfileOption = (profileName) => {
@@ -20,8 +20,12 @@ const ProfileSelector = (props) => {
 		);
 	};
 	
-	const onSelectProfile = (event) => {
-		updatedSelectedProfile(event.target.value);
+	const onChangeProfile = (event) => {
+		selectedProfile = event.target.value;
+	}
+
+	const onSelectProfile = () => {
+		props.onSelectProfile(selectedProfile);
 	}
 
 	// Renders and returns the profile selector object
@@ -29,10 +33,10 @@ const ProfileSelector = (props) => {
 		<div className={`profile + ${styles.profile}`}>
 			<form>				
 				<label htmlFor="profileName">Choose Profile:</label>
-				<select id="profileName" onChange={onSelectProfile} value={selectedProf}>					
+				<select id="profileName" onChange={onChangeProfile} value={selectedProfile}>					
 					{configuredProfiles.map( (profile) => mapProfileOption(profile) )}
 				</select>
-				<button onClick={props.onSelectProfile(selectedProf)}>Select profile</button>
+				<button onClick={onSelectProfile}>Select profile</button>
 				<br></br>		
 				<label htmlFor="createProfile">Create new profile:</label>
 				<input id="createProfile" type='text'></input>
