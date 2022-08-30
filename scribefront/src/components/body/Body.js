@@ -7,10 +7,16 @@ import { useState } from "react";
  * the profile selector component by default.
  */
 function Body() {
-	// 
+	
 	let [selectedProfile, updateSelectedProfile] = useState(undefined);
 
 	let profiles = ['default', 'test', 'new'];
+
+	// Function passed to profile selector to initialize profile for app
+	let onSelectProfile = (profile) => {
+		console.log(profile);
+		updateSelectedProfile(profile);
+	}
 
 	// The application data is tied to a profile and to initialize the panel
 	// a profile needs to be created or an existing one needs to be selected.
@@ -19,13 +25,13 @@ function Body() {
 	if (selectedProfile == undefined) {
 		return (
 			<div className="body">			
-				<ProfileSelector profiles={profiles}></ProfileSelector>
+				<ProfileSelector profiles={profiles} onSelectProfile={onSelectProfile}></ProfileSelector>
 	    		</div>	
 		)
 	} else {
 		return (
 			<div className="body">
-				<h2>nnn</h2>
+				<h2>Selected profile: {selectedProfile}</h2>	
 			</div>
 		)
 	}
